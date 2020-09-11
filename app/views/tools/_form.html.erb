@@ -1,0 +1,49 @@
+<%= form_with(model: tool, local: true) do |form| %>
+  <% if tool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
+
+      <ul>
+      <% tool.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :valor %>
+    <%= form.number_field :valor, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :disponible %>
+    <%= form.check_box :disponible, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bodega %>
+    <%= form.text_field :bodega, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if tool.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', tool, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if tool.persisted? %>
+      <%= link_to "Cancel", tool, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", tools_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
