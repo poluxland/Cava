@@ -102,6 +102,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.4.0)
     childprocess (3.0.0)
     chronic (0.10.2)
     concurrent-ruby (1.1.7)
@@ -347,6 +348,7 @@ DEPENDENCIES
   bootstrap (~> 4.5)
   byebug
   capybara (>= 2.15)
+  chartkick
   devise (~> 4.7, >= 4.7.1)
   devise-bootstrapped!
   devise_masquerade (~> 1.2)

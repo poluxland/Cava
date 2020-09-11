@@ -55,11 +55,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'administrate', github: 'excid3/administrate', branch: 'jumpstart'
 gem 'bootstrap', '~> 4.5'
+gem 'chartkick'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
 gem 'devise_masquerade', '~> 1.2'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'friendly_id', '~> 5.3'
+gem 'image_processing'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'name_of_person', '~> 1.1'
 gem 'noticed', '~> 1.2'
@@ -69,4 +71,3 @@ gem 'omniauth-twitter', '~> 1.4'
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
-gem 'image_processing'
