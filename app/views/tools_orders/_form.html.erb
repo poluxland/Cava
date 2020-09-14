@@ -1,0 +1,49 @@
+<%= form_with(model: tools_order, local: true) do |form| %>
+  <% if tools_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tools_order.errors.count, "error") %> prohibited this tools_order from being saved:</h2>
+
+      <ul>
+      <% tools_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :responsable %>
+    <%= form.text_field :responsable, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.check_box :status, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tool_id %>
+    <%= form.text_field :tool_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if tools_order.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', tools_order, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if tools_order.persisted? %>
+      <%= link_to "Cancel", tools_order, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", tools_orders_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

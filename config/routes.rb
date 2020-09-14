@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :tools_orders
   resources :tools
   namespace :admin do
     resources :users

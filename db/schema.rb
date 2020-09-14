@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_213130) do
+ActiveRecord::Schema.define(version: 2020_09_14_171721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,17 @@ ActiveRecord::Schema.define(version: 2020_09_11_213130) do
     t.string "bodega"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "estado"
+  end
+
+  create_table "tools_orders", force: :cascade do |t|
+    t.integer "cantidad"
+    t.string "responsable"
+    t.boolean "status"
+    t.bigint "tool_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tool_id"], name: "index_tools_orders_on_tool_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,4 +119,5 @@ ActiveRecord::Schema.define(version: 2020_09_11_213130) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "services", "users"
+  add_foreign_key "tools_orders", "tools"
 end
