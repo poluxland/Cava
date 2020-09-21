@@ -24,7 +24,7 @@ class ToolsOrdersController < ApplicationController
   # POST /tools_orders
   # POST /tools_orders.json
   def create
-    
+
     @tools_order = ToolsOrder.new(tools_order_params)
 
 
@@ -71,6 +71,6 @@ class ToolsOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tools_order_params
-      params.require(:tools_order).permit(:cantidad, :responsable, :status, :tool_id)
+      params.require(:tools_order).permit(:retiro, :responsable, :status, :tool_id)
     end
 end

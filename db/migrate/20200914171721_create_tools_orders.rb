@@ -1,7 +1,7 @@
 class CreateToolsOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :tools_orders do |t|
-      t.integer :cantidad
+      t.integer :retiro
       t.string :responsable
       t.boolean :status
       t.references :tool, null: false, foreign_key: true
