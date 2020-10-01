@@ -4,8 +4,11 @@ class ToolsOrdersController < ApplicationController
   # GET /tools_orders
   # GET /tools_orders.json
   def index
-    # @tools_orders = ToolsOrder.all
-    @tools_orders = ToolsOrder.where(tool_id: params[:tool_id])
+    if params[:tool_id].nil?
+      @tools_orders = ToolsOrder.all
+    else
+      @tools_orders = ToolsOrder.where(tool_id: params[:tool_id])
+    end
   end
 
   # GET /tools_orders/1
@@ -30,10 +33,10 @@ class ToolsOrdersController < ApplicationController
 
     @tools_order = ToolsOrder.new(tools_order_params)
     @tools_order.tool_id = params[:tool_id]
-
+    @tools_order.status = true
     respond_to do |format|
       if @tools_order.save!
-        format.html { redirect_to tool_tools_order_path(params[:tool_id], @tools_order), notice: 'Tools order was successfully created.' }
+        format.html { redirect_to tool_path(params[:tool_id]), notice: 'Tools order was successfully created.' }
         format.json { render :show, status: :created, location: @tools_order }
       else
         format.html { render :new }

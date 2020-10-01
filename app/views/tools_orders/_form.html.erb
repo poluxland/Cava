@@ -4,12 +4,12 @@
     
   <div class="form-group">
     <%= order.input :cantidad, 
-                    collection: (1..@tool.cantidad) %>
+                    collection: (1..@tool.total_disponible) %>
 
     <%= order.input :responsable, 
                     class: 'form-control' %>    
 
-    <%= order.input :status,
+    <%#= order.input :status,
                     label: "Activo" %>        
   
     <%= order.button :submit, class: 'btn btn-primary' %>
