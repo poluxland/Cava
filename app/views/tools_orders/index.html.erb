@@ -7,7 +7,7 @@
   </div>
 
   <div class="col-sm-6 text-right">
-  <%= link_to new_tools_order_path, class: 'btn btn-primary' do %>
+  <%= link_to new_tool_tools_order_path(@tools_orders.first.tool_id), class: 'btn btn-primary' do %>
     Add New Tools order
   <% end %>
   </div>
@@ -17,14 +17,10 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
-
             <th>Cantidad</th>
             <th>Responsable</th>
             <th>Status</th>
-            <th>Tool</th>
-            
-          <th></th>
+            <th></th>
         
       </tr>
     </thead>
@@ -37,10 +33,9 @@
                       <td><%= tools_order.cantidad %></td>
                       <td><%= tools_order.responsable %></td>
                       <td><%= tools_order.status %></td>
-                      <td><%= tools_order.tool %></td>
           
           
-            <td><%= link_to 'Show', tools_order %></td>
+            <td><%= link_to 'Show', tool_tools_order_path(tools_order.tool_id, tools_order) %></td>
           
         <% end %>
       <% end %>

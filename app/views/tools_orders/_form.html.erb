@@ -1,4 +1,4 @@
-<%= simple_form_for([@tool, @tool_order]) do |order| %>
+<%= simple_form_for([@tool, @tools_order]) do |order| %>
   <%= order.error_notification %>
   <%= order.error_notification message: order.object.errors[:base].to_sentence if order.object.errors[:base].present? %>
     

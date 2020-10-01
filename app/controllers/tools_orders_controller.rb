@@ -4,7 +4,8 @@ class ToolsOrdersController < ApplicationController
   # GET /tools_orders
   # GET /tools_orders.json
   def index
-    @tools_orders = ToolsOrder.all
+    # @tools_orders = ToolsOrder.all
+    @tools_orders = ToolsOrder.where(tool_id: params[:tool_id])
   end
 
   # GET /tools_orders/1
@@ -15,11 +16,12 @@ class ToolsOrdersController < ApplicationController
   # GET /tools_orders/new
   def new
     @tool = Tool.find(params[:tool_id])
-    @tool_order = @tool.tools_orders.build
+    @tools_order = @tool.tools_orders.build
   end
 
   # GET /tools_orders/1/edit
   def edit
+    @tool = Tool.find(params[:tool_id])
   end
 
   # POST /tools_orders
@@ -67,11 +69,11 @@ class ToolsOrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tools_order
-      @tools_order = ToolsOrder.find(params[:tool_id])
+      @tools_order = ToolsOrder.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def tools_order_params
-      params.require(:tools_order).permit(:retiro, :responsable, :status, :tool_id)
+      params.require(:tools_order).permit(:cantidad, :responsable, :status, :tool_id)
     end
 end
