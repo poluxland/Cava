@@ -14,7 +14,8 @@ class ToolsOrdersController < ApplicationController
 
   # GET /tools_orders/new
   def new
-    @tools_order = ToolsOrder.new
+    @tool = Tool.find(params[:tool_id])
+    @tool_order = @tool.tools_orders.build
   end
 
   # GET /tools_orders/1/edit
@@ -26,11 +27,11 @@ class ToolsOrdersController < ApplicationController
   def create
 
     @tools_order = ToolsOrder.new(tools_order_params)
-
+    @tools_order.tool_id = params[:tool_id]
 
     respond_to do |format|
-      if @tools_order.save
-        format.html { redirect_to @tools_order, notice: 'Tools order was successfully created.' }
+      if @tools_order.save!
+        format.html { redirect_to tool_tools_order_path(params[:tool_id], @tools_order), notice: 'Tools order was successfully created.' }
         format.json { render :show, status: :created, location: @tools_order }
       else
         format.html { render :new }
@@ -66,7 +67,7 @@ class ToolsOrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tools_order
-      @tools_order = ToolsOrder.find(params[:id])
+      @tools_order = ToolsOrder.find(params[:tool_id])
     end
 
     # Only allow a list of trusted parameters through.

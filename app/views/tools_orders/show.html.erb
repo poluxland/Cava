@@ -1,8 +1,8 @@
 <div class="page-header">
-  <%= link_to tools_orders_path, class: 'btn btn-default' do %>
+  <%= link_to tool_tools_orders_path(@tools_order.tool_id), class: 'btn btn-default' do %>
     All Tools_orders
   <% end %>
-  <%= link_to edit_tools_order_path(@tools_order), class: 'btn btn-primary' do %>
+  <%= link_to edit_tool_tools_order_path(@tools_order.tool_id,@tools_order), class: 'btn btn-primary' do %>
     Edit
   <% end %>
   <h1>Show tools_order</h1>

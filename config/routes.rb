@@ -1,8 +1,9 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do
-  resources :tools_orders
-  resources :tools
+Rails.application.routes.draw do 
+  resources :tools do
+    resources :tools_orders
+  end
   namespace :admin do
     resources :users
     resources :announcements
