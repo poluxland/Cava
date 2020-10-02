@@ -1,15 +1,17 @@
-
-
-
 <div class="row">
   <div class="col-sm-6">
     <h1>Herramientas</h1>
   </div>
 
   <div class="col-sm-6 text-right">
+  <%= link_to tools_orders_path, class: 'btn btn-primary' do %>
+    Ver ordenes
+  <% end %>
+
   <%= link_to new_tool_path, class: 'btn btn-primary' do %>
     Agregar herramienta
   <% end %>
+
   </div>
 </div>
 
@@ -22,6 +24,7 @@
             <th>Nombre</th>
             <th>Valor</th>
             <th>Disponible</th>
+            <th>Cantidad disponible</th>            
             <th>Bodega</th>
             <th>Estado</th>
 
@@ -37,8 +40,9 @@
 
                       <td><%= tool.cantidad %></td>
                       <td><%= tool.nombre %></td>
-                      <td><%= tool.valor %></td>
+                      <td>$<%= tool.valor %></td>
                       <td><%= tool.disponible ? 'Si' : 'No' %></td>
+                      <td><%= tool.total_disponible %></td>                      
                       <td><%= tool.bodega %></td>
                       <td><%= tool.estado %></td>
 

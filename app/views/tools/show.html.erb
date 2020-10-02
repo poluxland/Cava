@@ -1,27 +1,30 @@
-<div class="page-header">
-  <%= link_to tools_path, class: 'btn btn-primary' do %>
-    Index
-  <% end %>
-  <%= link_to edit_tool_path(@tool), class: 'btn btn-primary' do %>
-    Editar
-  <% end %>
-  <h1>Herramienta</h1>
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= @tool.nombre %></h1>
+  </div>  
+  <div class="col-sm-6 text-right">
+    <%= link_to tools_path, class: 'btn btn-primary' do %>
+      Volver
+    <% end %>
+    <%= link_to edit_tool_path(@tool), class: 'btn btn-primary' do %>
+      Editar
+    <% end %>
+  </div>  
 </div>
 
 <dl class="dl-horizontal">
   <dt>Cantidad:</dt>
   <dd><%= @tool.cantidad %></dd>
 
-  <dt>Nombre:</dt>
-  <dd><%= @tool.nombre %></dd>
-
   <dt>Valor:</dt>
   <dd><%= @tool.valor %></dd>
 
-  <dt>Disponible:</dt>
-  <dd><%= @tool.disponible %></dd>
+  <dt>Total disponibles:</dt>
+  <dd><%= @tool.total_disponible %></dd>
 
   <dt>Bodega:</dt>
   <dd><%= @tool.bodega %></dd>
 
 </dl>
+
+<%= render '/tools_orders/index_orders' , tools_orders: @tool.tools_orders %>
