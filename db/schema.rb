@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
     t.integer "retiro"
     t.string "responsable"
     t.boolean "status"
+    t.integer "cantidad"
     t.bigint "tool_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -4,6 +4,7 @@ class CreateToolsOrders < ActiveRecord::Migration[6.0]
       t.integer :retiro
       t.string :responsable
       t.boolean :status
+      t.integer :cantidad
       t.references :tool, null: false, foreign_key: true
 
       t.timestamps
