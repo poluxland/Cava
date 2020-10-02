@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_10_02_051703) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -83,18 +82,18 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
   end
 
   create_table "tools", force: :cascade do |t|
+    t.integer "cantidad"
     t.string "nombre"
     t.integer "valor"
     t.boolean "disponible"
     t.string "bodega"
+    t.string "estado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "estado"
-    t.integer "cantidad"
   end
 
   create_table "tools_orders", force: :cascade do |t|
-    t.integer "cantidad"
+    t.integer "retiro"
     t.string "responsable"
     t.boolean "status"
     t.bigint "tool_id", null: false
