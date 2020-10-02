@@ -43,10 +43,14 @@
   <div class="form-group">
     <% if tool.persisted? %>
       <div class="float-right">
-        <%= link_to 'Destroy', tool, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Eliminar', tool, method: :delete, class: "text-danger", data: { confirm: '¿Está Seguro?' } %>
       </div>
     <% end %>
 
-    <%= form.submit class: 'btn btn-primary' %>
+    <% if params[:id] %>
+      <%= form.submit 'Actualizar', class: 'btn btn-primary' %>
+    <% else %>
+      <%= form.submit 'Crear', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 <% end %>

@@ -9,9 +9,14 @@
     <%= order.input :responsable, 
                     class: 'form-control' %>    
 
-    <%#= order.input :status,
-                    label: "Activo" %>        
+    <%= order.input  :status, as: :hidden %>        
   
-    <%= order.button :submit, class: 'btn btn-primary' %>
+    <% if params[:id] %>
+      <%= order.button :submit, 'Actualizar', class: 'btn btn-primary' %>
+    <% else %>
+      <%= order.button :submit, 'Crear', class: 'btn btn-primary' %>
+    <% end %>
+
+
   </div>
 <% end %>

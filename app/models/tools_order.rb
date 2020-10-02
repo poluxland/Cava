@@ -1,7 +1,6 @@
 class ToolsOrder < ApplicationRecord
   belongs_to :tool
 
-  def persisted?
-    
-  end
+  validates :cantidad, numericality: true
+
 end
