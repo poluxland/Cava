@@ -1,7 +1,7 @@
 class CreateTools < ActiveRecord::Migration[6.0]
   def change
     create_table :tools do |t|
-      t.cantidad :integer
+      t.integer :cantidad
       t.string :nombre
       t.integer :valor
       t.boolean :disponible

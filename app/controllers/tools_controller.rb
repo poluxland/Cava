@@ -28,7 +28,7 @@ class ToolsController < ApplicationController
 
     respond_to do |format|
       if @tool.save
-        format.html { redirect_to @tool, notice: 'Tool was successfully created.' }
+        format.html { redirect_to @tool, notice: "#{@tool.nombre} creado." }
         format.json { render :show, status: :created, location: @tool }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ToolsController < ApplicationController
   def update
     respond_to do |format|
       if @tool.update(tool_params)
-        format.html { redirect_to @tool, notice: 'Tool was successfully updated.' }
+        format.html { redirect_to @tool, notice: "#{@tool.nombre} actualizado." }
         format.json { render :show, status: :ok, location: @tool }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ToolsController < ApplicationController
   def destroy
     @tool.destroy
     respond_to do |format|
-      format.html { redirect_to tools_url, notice: 'Tool was successfully destroyed.' }
+      format.html { redirect_to tools_url, notice: "#{@tool.nombre} eliminado." }
       format.json { head :no_content }
     end
   end

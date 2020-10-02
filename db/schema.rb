@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_224708) do
+ActiveRecord::Schema.define(version: 2020_10_02_051703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,23 +82,25 @@ ActiveRecord::Schema.define(version: 2020_09_21_224708) do
   end
 
   create_table "tools", force: :cascade do |t|
+    t.integer "cantidad"
     t.string "nombre"
     t.integer "valor"
     t.boolean "disponible"
     t.string "bodega"
+    t.string "estado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "estado"
-    t.integer "cantidad"
   end
 
   create_table "tools_orders", force: :cascade do |t|
-    t.integer "cantidad"
+    t.integer "retiro"
     t.string "responsable"
     t.boolean "status"
+    t.integer "cantidad"
     t.bigint "tool_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "order_end"
     t.index ["tool_id"], name: "index_tools_orders_on_tool_id"
   end
 

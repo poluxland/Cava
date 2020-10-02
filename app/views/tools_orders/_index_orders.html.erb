@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Ordenes</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <% if params[:id].nil? %>
+    <%= link_to tools_path, class: 'btn btn-primary' do %>
+      Volver
+    <% end %>
+  <% else %>
+    <%= link_to new_tool_tools_order_path(params[:id]), class: 'btn btn-primary' do %>
+      Nueva orden
+    <% end %>
+  <% end %>
+ </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Cantidad</th>
+            <th>Responsable</th>
+            <th>Status</th>
+            <th>Fecha inicio</th>
+            <th>Fecha fin</th>
+            <th></th>
+            <th></th>            
+      </tr>
+    </thead>
+    <tbody>
+      <% tools_orders.each do |tools_order| %>
+        <%= content_tag :tr, id: dom_id(tools_order), class: dom_class(tools_order) do %>       
+
+            <td><%= tools_order.cantidad %></td>
+            <td><%= tools_order.responsable %></td>
+            <td><%= tools_order.status ? "Activo": "Finalizado" %></td>
+            <td><%= tools_order.created_at %></td>
+            <td><%= tools_order.order_end unless tools_order.order_end.nil?  %></td>                    
+            <td><%= link_to 'Ver', tool_tools_order_path(tools_order.tool_id, tools_order) %></td>
+            <td><%= link_to 'Finalizar', tools_order_path(tools_order), method: :patch if tools_order.status %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

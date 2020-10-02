@@ -1,11 +1,22 @@
-<div class="page-header">
-  <%= link_to tools_orders_path, class: 'btn btn-default' do %>
-    All Tools_orders
-  <% end %>
-  <%= link_to edit_tools_order_path(@tools_order), class: 'btn btn-primary' do %>
-    Edit
-  <% end %>
-  <h1>Show tools_order</h1>
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Orden de <%= @tools_order.responsable %> </h1>
+  </div>
+
+  <div class="col-sm-6 text-right">  
+    <% if params[:tool_id].nil? %>
+      <%= link_to tools_orders_path, class: 'btn btn-primary' do %>
+        Volver
+      <% end %>
+    <% else %>
+      <%= link_to tool_path(@tools_order.tool), class: 'btn btn-primary' do %>
+        Volver
+      <% end %>
+    <% end %>
+    <%= link_to edit_tool_tools_order_path(@tools_order.tool_id,@tools_order), class: 'btn btn-primary' do %>
+      Editar
+    <% end %>
+  </div>
 </div>
 
 <dl class="dl-horizontal">
@@ -16,9 +27,6 @@
   <dd><%= @tools_order.responsable %></dd>
 
   <dt>Status:</dt>
-  <dd><%= @tools_order.status %></dd>
-
-  <dt>Tool:</dt>
-  <dd><%= @tools_order.tool %></dd>
+  <dd><%= @tools_order.status ? "Activo" : "Finalizado" %></dd>
 
 </dl>
