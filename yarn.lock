@@ -2421,6 +2421,11 @@ data-confirm-modal@^1.6.2:
   resolved "https://registry.yarnpkg.com/data-confirm-modal/-/data-confirm-modal-1.6.2.tgz#81fc8ea298cfd9311d066915d1710b3cfa57d96b"
   integrity sha512-UYYgx8hS65X8Y336YRp1x6A5Gfkhh4iYkLq5jw7oS++hTcq/3yO8JOrbfHvvr7qqqQxBSPRyvUXnFEFIr4ja4w==
 
+dayjs@^1.8.28:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.1.tgz#201a755f7db5103ed6de63ba93a984141c754541"
+  integrity sha512-01NCTBg8cuMJG1OQc6PR7T66+AFYiPwgDvdJmvJBn29NGzIG+DIFxPLNjHzwz3cpFIvG+NcwIjP9hSaPVoOaDg==
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -6532,6 +6537,13 @@ signal-exit@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
+
+simple-datatables@^2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-2.1.13.tgz#7285653892cff37ead3ce8429559346b2d21446a"
+  integrity sha512-wKl0AXy0TbFi9YlQpph8kSdNHey2cMb8AcV3gjT0ccm1Fm+yMRE6trIAwDIMgqVQpCW5VWKYbOoDjKjfCoQRPg==
+  dependencies:
+    dayjs "^1.8.28"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
