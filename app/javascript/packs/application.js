@@ -18,3 +18,11 @@ $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
+
+require("datatables.net")
+require('datatables.net-bs4')
+require("datatables.net-bs4/css/dataTables.bootstrap4.min.css")
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );

@@ -8,6 +8,8 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.2",
     "data-confirm-modal": "^1.6.2",
+    "datatables.net": "^1.10.22",
+    "datatables.net-bs4": "^1.10.22",
     "expose-loader": "^1.0.0",
     "jquery": "^3.5.1",
     "local-time": "^2.1.0",
