@@ -23,9 +23,9 @@
             <th>Cantidad</th>
             <th>Responsable</th>
             <th>Status</th>
-            <th>Fecha</th>
+            <th>Prestamo</th>
             <th>Equipo</th>
-            <th>Fecha fin</th>
+            <th>Entrega</th>
             <th></th>
             <th></th>
       </tr>
@@ -37,9 +37,9 @@
             <td><%= tools_order.cantidad %></td>
             <td><%= tools_order.responsable %></td>
             <td><%= tools_order.status ? "Activo": "Finalizado" %></td>
-            <td><%= tools_order.created_at %></td>
+            <td><%= tools_order.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= tools_order.tool.nombre %></td>
-            <td><%= tools_order.order_end   %></td>
+            <td><%= tools_order.updated_at.strftime("%Y-%m-%d") unless tools_order.status  %></td>
             <td><%= link_to 'Ver', tool_tools_order_path(tools_order.tool_id, tools_order) %></td>
             <td><%= link_to 'Finalizar', tools_order_path(tools_order), method: :patch if tools_order.status %></td>
 

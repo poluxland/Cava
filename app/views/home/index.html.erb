@@ -6,6 +6,9 @@
           <div class="card-body text-primary">
             <h2 class="card-title"><i class="fas fa-tools"></i> Equipos</h2>
             <p class="card-text">Registro de herramientas.</p>
+            <h4>
+            <%= number_to_currency(Tool.sum("cantidad * valor"), delimiter: ".", precision: 0) %>
+            </h4>
           </div>
         </div>
         </a>
@@ -19,6 +22,10 @@
           <div class="card-body text-danger">
             <h2 class="card-title"><i class="fas fa-tools"></i> Registro</h2>
             <p class="card-text">Prestamo de equipos.</p>
+            <h4>
+            <%= number_with_delimiter(ToolsOrder.sum(:cantidad), delimiter: ".", precision: 0) %>
+            En terreno.
+            </h4>
           </div>
         </div>
         </a>
