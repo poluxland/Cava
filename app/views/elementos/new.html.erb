@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Nuevo</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+    <%= link_to elementos_path, class: 'btn btn-primary' do %>
+      Volver
+    <% end %>
+  </div>
+</div>
+<%= render 'form', elemento: @elemento %>

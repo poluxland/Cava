@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= @elemento.nombre %></h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%= link_to elementos_path, class: 'btn btn-primary' do %>
+      Volver
+    <% end %>
+    <%= link_to edit_elemento_path(@elemento), class: 'btn btn-primary' do %>
+      Editar
+    <% end %>
+  </div>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Cantidad:</dt>
+  <dd><%= @elemento.cantidad %></dd>
+
+  <dt>Valor:</dt>
+  <dd><%= @elemento.valor %></dd>
+
+  <dt>Total disponibles:</dt>
+  <dd><%= @elemento.total_disponible %></dd>
+
+  <dt>Bodega:</dt>
+  <dd><%= @elemento.bodega %></dd>
+
+</dl>
+
+<%= render '/elementos_orders/index_orders' , elementos_orders: @elemento.elementos_orders %>

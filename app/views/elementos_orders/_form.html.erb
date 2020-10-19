@@ -1,0 +1,17 @@
+<%= simple_form_for([@elemento, @elementos_order]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-group">
+    <%= f.input :cantidad,collection: (-50..@elemento.total_disponible), selected: 1 %>
+    <%= f.input :responsable,class: 'form-control' %>
+    <%= f.input  :status, as: :hidden %>
+
+    <% if params[:id] %>
+      <%= f.button :submit, 'Actualizar', class: 'btn btn-primary' %>
+    <% else %>
+      <%= f.button :submit, 'Crear', class: 'btn btn-primary' %>
+    <% end %>
+
+  </div>
+<% end %>

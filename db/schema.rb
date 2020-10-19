@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_051703) do
+ActiveRecord::Schema.define(version: 2020_10_15_271721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,29 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "elementos", force: :cascade do |t|
+    t.integer "cantidad"
+    t.string "nombre"
+    t.integer "valor"
+    t.boolean "disponible"
+    t.string "bodega"
+    t.string "estado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "elementos_orders", force: :cascade do |t|
+    t.integer "retiro"
+    t.string "responsable"
+    t.boolean "status"
+    t.integer "cantidad"
+    t.bigint "elemento_id", null: false
+    t.date "order_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["elemento_id"], name: "index_elementos_orders_on_elemento_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -54,6 +77,29 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "insumos", force: :cascade do |t|
+    t.integer "cantidad"
+    t.string "nombre"
+    t.integer "valor"
+    t.boolean "disponible"
+    t.string "bodega"
+    t.string "estado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "insumos_orders", force: :cascade do |t|
+    t.integer "retiro"
+    t.string "responsable"
+    t.boolean "status"
+    t.integer "cantidad"
+    t.bigint "insumo_id", null: false
+    t.date "order_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["insumo_id"], name: "index_insumos_orders_on_insumo_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -82,21 +128,20 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
   end
 
   create_table "tools", force: :cascade do |t|
-    t.integer "cantidad"
     t.string "nombre"
     t.integer "valor"
     t.boolean "disponible"
     t.string "bodega"
-    t.string "estado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "estado"
+    t.integer "cantidad"
   end
 
   create_table "tools_orders", force: :cascade do |t|
-    t.integer "retiro"
+    t.integer "cantidad"
     t.string "responsable"
     t.boolean "status"
-    t.integer "cantidad"
     t.bigint "tool_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -121,6 +166,8 @@ ActiveRecord::Schema.define(version: 2020_10_02_051703) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "elementos_orders", "elementos"
+  add_foreign_key "insumos_orders", "insumos"
   add_foreign_key "services", "users"
   add_foreign_key "tools_orders", "tools"
 end

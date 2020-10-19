@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= @insumo.nombre %></h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%= link_to insumos_path, class: 'btn btn-primary' do %>
+      Volver
+    <% end %>
+    <%= link_to edit_insumo_path(@insumo), class: 'btn btn-primary' do %>
+      Editar
+    <% end %>
+  </div>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Cantidad:</dt>
+  <dd><%= @insumo.cantidad %></dd>
+
+  <dt>Valor:</dt>
+  <dd><%= @insumo.valor %></dd>
+
+  <dt>Total disponibles:</dt>
+  <dd><%= @insumo.total_disponible %></dd>
+
+  <dt>Bodega:</dt>
+  <dd><%= @insumo.bodega %></dd>
+
+</dl>
+
+<%= render '/insumos_orders/index_orders' , insumos_orders: @insumo.insumos_orders %>

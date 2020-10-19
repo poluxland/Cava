@@ -1,8 +1,14 @@
 require 'sidekiq/web'
 
-Rails.application.routes.draw do 
+Rails.application.routes.draw do
   resources :tools do
     resources :tools_orders
+  end
+  resources :insumos do
+    resources :insumos_orders
+  end
+  resources :elementos do
+    resources :elementos_orders
   end
   namespace :admin do
     resources :users
@@ -20,6 +26,8 @@ Rails.application.routes.draw do
     end
 
   resources :tools_orders, only: [:index, :update]
+  resources :insumos_orders, only: [:index, :update]
+  resources :elementos_orders, only: [:index, :update]
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }

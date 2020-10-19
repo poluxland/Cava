@@ -1,0 +1,56 @@
+<%= form_with(model: insumo, local: true) do |form| %>
+  <% if insumo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
+
+      <ul>
+      <% insumo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :cantidad %>
+    <%= form.text_field :cantidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :valor %>
+    <%= form.number_field :valor, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :disponible %>
+    <%= form.check_box :disponible, { checked: true }, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bodega %>
+    <%= form.select :bodega,  ["LCA", "PTM", "VTS"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if insumo.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Eliminar', insumo, method: :delete, class: "text-danger", data: { confirm: '¿Está Seguro?' } %>
+      </div>
+    <% end %>
+
+    <% if params[:id] %>
+      <%= form.submit 'Actualizar', class: 'btn btn-primary' %>
+    <% else %>
+      <%= form.submit 'Crear', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<% end %>

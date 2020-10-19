@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Orden de <%= @insumos_order.responsable %> </h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+    <% if params[:insumo_id].nil? %>
+      <%= link_to insumos_orders_path, class: 'btn btn-primary' do %>
+        Volver
+      <% end %>
+    <% else %>
+      <%= link_to insumo_path(@insumos_order.insumo), class: 'btn btn-primary' do %>
+        Volver
+      <% end %>
+    <% end %>
+    <%= link_to edit_insumo_insumos_order_path(@insumos_order.insumo_id,@insumos_order), class: 'btn btn-primary' do %>
+      Editar
+    <% end %>
+  </div>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Cantidad:</dt>
+  <dd><%= @insumos_order.cantidad %></dd>
+
+  <dt>Responsable:</dt>
+  <dd><%= @insumos_order.responsable %></dd>
+
+  <dt>Status:</dt>
+  <dd><%= @insumos_order.status ? "Activo" : "Finalizado" %></dd>
+
+</dl>
