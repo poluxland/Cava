@@ -3,8 +3,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-group">
-    <%= f.input :cantidad,
-                    collection: (1..@insumo.total_disponible) %>
+    <%= f.input :cantidad,collection: (-50..@elemento.total_disponible), selected: 1 %>
 
     <%= f.input :responsable,
                     class: 'form-control' %>
