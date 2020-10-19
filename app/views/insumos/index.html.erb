@@ -23,8 +23,6 @@
             <th>Cantidad</th>
             <th>Nombre</th>
             <th>Valor</th>
-
-            <th>Cantidad disponible</th>
             <th>Bodega</th>
             <th>Estado</th>
 
@@ -38,11 +36,9 @@
       <% @insumos.each do |insumo| %>
         <%= content_tag :tr, id: dom_id(insumo), class: dom_class(insumo) do %>
 
-                      <td><%= insumo.cantidad %></td>
+                      <td><%= insumo.total_disponible %></td>
                       <td><%= insumo.nombre %></td>
                       <td><%= number_with_delimiter(insumo.valor) %></td>
-
-                      <td><%= insumo.total_disponible %></td>
                       <td><%= insumo.bodega %></td>
                       <td><%= insumo.estado %></td>
 
