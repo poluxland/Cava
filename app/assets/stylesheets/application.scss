@@ -9,6 +9,7 @@
 @import "jumpstart/announcements";
 @import "bootstrap/dist/css/bootstrap";
 
+
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
   .container {
