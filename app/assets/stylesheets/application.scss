@@ -7,6 +7,8 @@
 @import "bootstrap";
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
+@import "bootstrap/dist/css/bootstrap";
+@import "datatables.net-bs4/css/dataTables.bootstrap4.css";
 
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {

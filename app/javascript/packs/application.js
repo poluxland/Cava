@@ -8,7 +8,11 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("local-time").start()
+require('datatables.net-bs4')
 
+
+import $ from 'jquery';
+global.$ = jQuery;
 
 window.Rails = Rails
 
