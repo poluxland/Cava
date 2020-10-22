@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="shadow p-3 mb-5 bg-white rounded table table-striped table-bordered dt-responsive nowrap">
+    <thead>
+      <tr>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Responsable</th>
+            <th>Equipo</th>
+            <th>Entrega</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @tools_orders.each do |tools_order| %>
+        <%= content_tag :tr, id: dom_id(tools_order), class: dom_class(tools_order) do %>
+
+            <td><%= tools_order.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= tools_order.cantidad %></td>
+            <td><%= tools_order.responsable %></td>
+            <td><%= tools_order.tool.nombre %></td>
+            <td><%= tools_order.updated_at.strftime("%Y-%m-%d") unless tools_order.status  %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

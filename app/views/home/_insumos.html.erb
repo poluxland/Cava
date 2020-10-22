@@ -1,0 +1,28 @@
+
+
+<div class="table-responsive">
+  <table  class="shadow p-3 mb-5 bg-white rounded table table-striped table-bordered dt-responsive nowrap">
+    <thead>
+      <tr>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Nombre</th>
+            <th>Insumo</th>
+            <th>Costo</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @insumos_orders.each do |insumos_order| %>
+        <%= content_tag :tr, id: dom_id(insumos_order), class: dom_class(insumos_order) do %>
+
+            <td><%= insumos_order.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= insumos_order.cantidad %></td>
+            <td><%= insumos_order.responsable %></td>
+            <td><%= insumos_order.insumo.nombre %></td>
+            <td><%= insumos_order.insumo.valor.to_i * insumos_order.cantidad.to_i %></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

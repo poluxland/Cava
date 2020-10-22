@@ -1,68 +1,9 @@
-<div class="row">
-    <div class="col-12 col-lg-3 mb-2">
-      <a href="<%= tools_path %>" style="text-decoration: none">
-        <div class="shadow card border-primary mb-3 ml-0 h-100">
 
-          <div class="card-body text-primary">
-            <h2 class="card-title"><i class="fas fa-tools"></i> Equipos</h2>
-            <p class="card-text">Registro de equipos.</p>
-            <h4>
-            <%= number_to_currency(Tool.sum("cantidad * valor"), delimiter: ".", precision: 0) %>
-            </h4>
-          </div>
-        </div>
-        </a>
-
-    </div>
-
-    <div class="col-12 col-lg-3 mb-2">
-      <a href="<%= tools_orders_path %>" style="text-decoration: none">
-        <div class="shadow card border-danger mb-3 ml-0 h-100">
-
-          <div class="card-body text-danger">
-            <h2 class="card-title"><i class="fas fa-tools"></i> Registro</h2>
-            <p class="card-text">Prestamo de equipos.</p>
-            <h4>
-            <%= number_with_delimiter(ToolsOrder.where(status: true).sum(:cantidad), delimiter: ".", precision: 0) %>
-            En terreno.
-            </h4>
-          </div>
-        </div>
-        </a>
-
-
-
-    </div>
-
-
-
-    <div class="col-12 col-lg-3 mb-2">
-      <a href="<%= insumos_path %>" style="text-decoration: none">
-      <div class="shadow card border-warning mb-3 ml-0 h-100">
-
-        <div class="card-body text-warning">
-          <h2 class="card-title"><i class="fas fa-warehouse"></i> Insumos</h2>
-          <p class="card-text">Registro de entrega.</p>
-        </div>
-      </div>
-      </a>
-
-
-    </div>
-
-
-    <div class="col-12 col-lg-3 mb-2">
-      <a href="<%= elementos_path %>" style="text-decoration: none">
-      <div class="shadow card border-info mb-3 ml-0 h-100">
-
-        <div class="card-body text-info">
-          <h2 class="card-title"><i class="fas fa-user-shield"></i> EPP</h2>
-          <p class="card-text">Registro de entrega.</p>
-        </div>
-      </div>
-      </a>
-
-
-    </div>
-
-  </div>
+<%= render 'boxes' %>
+<br>
+<h3>Ultimos EPP entregados</h3>
+<%= render 'epp' %>
+<h3>Ultimos insumos entregados</h3>
+<%= render 'insumos' %>
+<h3>Herramientas pendientes de entrega</h3>
+<%= render 'herramientas' %>
