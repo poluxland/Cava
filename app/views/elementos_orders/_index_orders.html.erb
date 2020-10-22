@@ -40,7 +40,7 @@
             <td><%= elementos_order.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= elementos_order.elemento.nombre %></td>
             <td><%= elementos_order.updated_at.strftime("%Y-%m-%d") unless elementos_order.status  %></td>
-            <td><%= elementos_order.elemento.valor * elementos_order.cantidad %></td>
+            <td><%= elementos_order.elemento.valor.to_i * elementos_order.cantidad.to_i %></td>
         <% end %>
       <% end %>
     </tbody>
