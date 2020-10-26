@@ -20,10 +20,10 @@
   <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap">
     <thead>
       <tr>
+            <th>Prestamo</th>
             <th>Cantidad</th>
             <th>Responsable</th>
             <th>Status</th>
-            <th>Prestamo</th>
             <th>Equipo</th>
             <th>Entrega</th>
             <th>Costo</th>
@@ -34,10 +34,10 @@
       <% @insumos_orders.each do |insumos_order| %>
         <%= content_tag :tr, id: dom_id(insumos_order), class: dom_class(insumos_order) do %>
 
+            <td><%= insumos_order.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= insumos_order.cantidad %></td>
             <td><%= insumos_order.responsable %></td>
             <td><%= insumos_order.status ? "Activo": "Finalizado" %></td>
-            <td><%= insumos_order.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= insumos_order.insumo.nombre %></td>
             <td><%= insumos_order.updated_at.strftime("%Y-%m-%d") unless insumos_order.status  %></td>
             <td><%= insumos_order.insumo.valor.to_i * insumos_order.cantidad.to_i %></td>
