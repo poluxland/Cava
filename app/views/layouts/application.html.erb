@@ -18,8 +18,12 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#myTable').DataTable();
-  });
+    $('#myTable').DataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
+
+
 </script>
 
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">

@@ -11,10 +11,12 @@ class HomeController < ApplicationController
     @elementos2 = ElementosOrder.where("elementos_orders.cantidad > ?", 0).joins(:elemento).where(created_at: ((Date.today.beginning_of_month) - 2.month)..((Date.today.end_of_month) - 2.month)).sum("elementos_orders.cantidad * elementos.valor")
   end
 
-  def terms
+  def ins
+    @insumos_orders = InsumosOrder.where("insumos_orders.cantidad > ?", 0)
   end
 
-  def privacy
+  def epp
+    @elementos_orders = ElementosOrder.where("elementos_orders.cantidad > ?", 0)
   end
 
 

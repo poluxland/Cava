@@ -1,9 +1,13 @@
 
 <%= render 'boxes' %>
 <br>
-<h3>Ultimos EPP entregados</h3>
-<%= render 'epp' %>
+<a href="<%= epp_path %>" style="text-decoration: none">
+  <h3>Ultimos EPP entregados</h3>
+    <%= render 'epp' %>
+</a>
+<a href="<%= ins_path %>" style="text-decoration: none">
 <h3>Ultimos insumos entregados</h3>
 <%= render 'insumos' %>
+</a>
 <h3>Herramientas pendientes de entrega</h3>
 <%= render 'herramientas' %>

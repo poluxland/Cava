@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  get '/privacy', to: 'home#privacy'
-  get '/terms', to: 'home#terms'
+  get '/epp', to: 'home#epp'
+  get '/ins', to: 'home#ins'
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
