@@ -43,6 +43,10 @@
         <div class="card-body text-warning">
           <h2 class="card-title"><i class="fas fa-warehouse"></i> Insumos</h2>
           <p class="card-text">Registro de entrega.</p>
+
+          <%= number_to_currency(@insumos0, delimiter: ".", precision: 0) %> <%= (Date.today - 0.month).strftime("%B") %><br>
+          <%= number_to_currency(@insumos1, delimiter: ".", precision: 0) %> <%= (Date.today - 1.month).strftime("%B") %><br>
+          <%= number_to_currency(@insumos2, delimiter: ".", precision: 0) %> <%= (Date.today - 2.month).strftime("%B") %><br>
         </div>
       </div>
       </a>
@@ -58,6 +62,9 @@
         <div class="card-body text-info">
           <h2 class="card-title"><i class="fas fa-user-shield"></i> EPP</h2>
           <p class="card-text">Registro de entrega.</p>
+          <%= number_to_currency(@elementos0, delimiter: ".", precision: 0) %> <%= (Date.today - 0.month).strftime("%B") %><br>
+          <%= number_to_currency(@elementos1, delimiter: ".", precision: 0) %> <%= (Date.today - 1.month).strftime("%B") %><br>
+          <%= number_to_currency(@elementos2, delimiter: ".", precision: 0) %> <%= (Date.today - 2.month).strftime("%B") %><br>
         </div>
       </div>
       </a>
