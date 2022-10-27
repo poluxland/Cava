@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_271721) do
+ActiveRecord::Schema.define(version: 2022_10_26_203942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_271721) do
     t.date "order_end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "unidad"
     t.index ["elemento_id"], name: "index_elementos_orders_on_elemento_id"
   end
 
