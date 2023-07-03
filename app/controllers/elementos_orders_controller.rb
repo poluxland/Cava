@@ -92,6 +92,6 @@ class ElementosOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def elementos_order_params
-      params.require(:elementos_order).permit(:cantidad, :responsable, :status, :elemento_id, :unidad)
+      params.require(:elementos_order).permit(:cantidad, :responsable, :status, :elemento_id, :unidad, :numero_de_vale, :observaciones)
     end
 end

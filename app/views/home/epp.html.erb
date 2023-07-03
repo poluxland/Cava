@@ -27,6 +27,8 @@
             <th>Equipo</th>
             <th>Entrega</th>
             <th>Costo</th>
+            <th>Numero de vale</th>
+            <th>Observaciones</th>
 
       </tr>
     </thead>
@@ -41,6 +43,8 @@
             <td><%= elementos_order.elemento.nombre %></td>
             <td><%= elementos_order.updated_at.strftime("%Y-%m-%d") unless elementos_order.status  %></td>
             <td><%= elementos_order.elemento.valor.to_i * elementos_order.cantidad.to_i %></td>
+            <td><%= elementos_order.numero_de_vale %></td>
+            <td><%= elementos_order.observaciones %></td>
         <% end %>
       <% end %>
     </tbody>

@@ -4,11 +4,13 @@
 
   <div class="form-group">
     <%= f.input :cantidad,collection: (-50..@elemento.total_disponible), selected: 1 %>
-    
+
     <%= f.input :responsable,class: 'form-control' %>
     <%= f.label :"Centro de costo" %> <br>
     <%= f.select :unidad,  ["Envasadora", "Servicios", "Transporte", "Mecanicos", "Otros"], class: 'form-control' %>
-    
+    <br> <br>
+    <%= f.input :numero_de_vale, label: 'Numero de Vale', class: 'form-control' %>
+    <%= f.input :observaciones, label: 'Observaciones', class: 'form-control' %>
     <%= f.input  :status, as: :hidden %>
 
     <% if params[:id] %>

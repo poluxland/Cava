@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_26_203942) do
+ActiveRecord::Schema.define(version: 2023_07_03_190715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2022_10_26_203942) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "unidad"
+    t.integer "numero_de_vale"
+    t.text "observaciones"
     t.index ["elemento_id"], name: "index_elementos_orders_on_elemento_id"
   end
 
@@ -137,6 +139,7 @@ ActiveRecord::Schema.define(version: 2022_10_26_203942) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "estado"
     t.integer "cantidad"
+    t.integer "observaciones"
   end
 
   create_table "tools_orders", force: :cascade do |t|
